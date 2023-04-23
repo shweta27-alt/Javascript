@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" class="email"/>
+    <div class="error">Error message</div>
+  
+    <script>
+
+        let array = ["a","b","c","d"]
+        let x = document.querySelector(".email")
+        let y = document.querySelector(".error")
+        x.addEventListener("change",function(e){
+           let val = e.target.value
+           if(!(array.includes(val.charAt(0)))){
+              y.classList.remove("error")
+           }else{
+            y.classList.add("error")
+           }
+        })
+    </script>
+
+</body>
+</html>

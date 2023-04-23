@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="counter-value">0</div>
+    <div class="start">start</div>
+    <div class="stop">stop</div>
+    <script>
+
+      let counter = 0;
+        let countvalue = document.querySelector(".counter-value");
+        let timer;
+        let second = 0;
+        let minutes = 0;
+        document.querySelector(".start").addEventListener("click",function(){
+            timer = setInterval(function(){
+                counter++;
+                if(counter==100){
+                    second=second+1;
+                    counter=0;
+                }
+
+                if(second==60){
+                    minutes = minutes+1;
+                    seconds=0;
+                }
+                countvalue.innerText = `${minutes}m ${second} ${counter}`
+            },10)
+
+         })
+
+
+        document.querySelector(".stop").addEventListener("click",function(){
+                clearInterval(timer);
+        })
+    </script>
+</body>
+</html>
+
+

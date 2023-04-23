@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .testdata{
+            background-color: blueviolet;
+            height:300px;
+            width:300px;
+        }
+
+        .addcolor{
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <button class="minus">-</button>
+    <input value="5" class="counter"/>
+    <button class="plus">+</button>
+
+    <select class="options">
+        <option value="">select one</option>
+        <option>chocolate</option>
+        <option>cake</option>
+        <option>fruti</option>
+        <option>swillroll</option>
+    </select>
+
+    <input class="first"/>
+    <input class="second"/>
+    <button class="addition">Add</button>
+
+    <div class="testdata"></div>
+    <button class="changecolor">change color</button>
+
+
+    <input type="range" class="slider"/>
+
+    <script>
+       
+       let range = document.querySelector(".slider")
+       range.addEventListener("input", function(e){
+        let divclass = document.querySelector(".testdata")
+        divclass.innerText = e.target.value
+       })
+
+
+        let firstdiv = document.querySelector(".testdata")
+        let color = document.querySelector(".changecolor")
+        color.addEventListener("click",function(){
+            if(firstdiv.classList.contains("addcolor")){
+                firstdiv.classList.remove("addcolor")
+            }else{
+                firstdiv.classList.add("addcolor")
+            }
+        })
+
+       let change = 1;
+       document.querySelector(".testdata").innerHTML = `<h1> ${change} </h1>`
+
+        let addition = document.querySelector(".addition")
+        addition.addEventListener("click",function(){
+            let first = document.querySelector(".first").value
+            let second = document.querySelector(".second").value
+            let y = parseInt(first) + parseInt(second)
+            let result = document.querySelector(".testdata")
+            result.innerText = `the addition is ${y}`
+        })
+
+        let data = document.querySelector(".options")
+        data.addEventListener("change",function(){
+            let eventdata = document.querySelector(".testdata")
+            eventdata.innerText = `I like ${event.target.value}`
+        }) 
+
+        let x = document.querySelector(".minus")
+        x.addEventListener("click",function(){
+            let sub = document.querySelector(".counter").value
+            if(sub>5){
+            sub--;
+            document.querySelector(".counter").value = sub
+            }   
+        })
+
+
+        let y = document.querySelector(".plus")
+        y.addEventListener("click",function(){
+            let add = document.querySelector(".counter").value
+            if(add<10){
+             add++;
+            document.querySelector(".counter").value = add
+            }
+        })
+    </script>
+</body>
+</html>

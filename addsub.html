@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button class="minus">-</button>
+        <input type="text" class="counter" value="5"/>
+        <button class="plus">+</button>
+    </div>
+
+    <script>
+       let data = document.querySelector(".plus")
+       data.addEventListener("click", function(){
+        let addcounter = document.querySelector(".counter")
+         let add = addcounter.value;
+         if(add<10){
+            add++;
+            addcounter.value = add
+         }
+     })
+
+     let metadata= document.querySelector(".minus")
+       metadata.addEventListener("click", function(){
+         let subcounter = document.querySelector(".counter")
+         let sub =subcounter.value;
+         if(sub>5){
+            sub--;
+            subcounter.value = sub
+         }
+     })
+
+    </script>
+</body>
+</html>
